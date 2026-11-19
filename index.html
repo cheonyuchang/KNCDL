@@ -347,6 +347,50 @@
             margin-bottom: 1rem;
         }
 
+        .video-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .video-tab-btn {
+            padding: 8px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--button-bg);
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .video-tab-btn:hover {
+            background-color: var(--button-hover);
+            color: var(--text-main);
+        }
+
+        .video-tab-btn.active {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            border-color: var(--accent-blue);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            background: #0d0f14;
+        }
+
         .video-container {
             position: relative;
             width: 100%;
@@ -590,8 +634,14 @@
             
             <h2 class="modal-title" id="mTitle">Society</h2>
             
+            <div class="video-tabs">
+                <button type="button" class="video-tab-btn active" id="tabVerification" onclick="switchVideoTab('verification')">Verification</button>
+                <button type="button" class="video-tab-btn" id="tabShowcase" onclick="switchVideoTab('showcase')">Showcase</button>
+            </div>
+
             <div class="video-container">
                 <iframe id="mVideo" src="" allowfullscreen></iframe>
+                <div id="videoPlaceholder" class="video-placeholder">등록된 Showcase 영상이 없습니다.</div>
             </div>
 
             <p class="level-description" id="mDesc">// Is it guilt that keeps you awake at night... // </p>
@@ -654,6 +704,7 @@
                 verifier: "Axinity",
                 thumb: "https://img.youtube.com/vi/Uue4ZRhVf-I/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/Uue4ZRhVf-I",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "// The lights shine bright on a coldantarctic night. By Declan, SkyJax, Tolstyh and Arcturus. Verified by Axinity. Good Luck... //",
                 id: "144988390",
                 password: "Free Copy",
@@ -673,6 +724,7 @@
                 verifier: "ad3usgmd",
                 thumb: "https://img.youtube.com/vi/AdrmZsy52EY/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/AdrmZsy52EY",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Another nine circles level. Hardest nine circles level ever created?",
                 id: "10887708",
                 password: "Copy Disabled",
@@ -692,6 +744,7 @@
                 verifier: "Wity",
                 thumb: "https://img.youtube.com/vi/4V24spYQWuE/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/4V24spYQWuE",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "The Final Paracosm. Started by Renn241 and finished by Me. Verified by Wity.",
                 id: "138704906",
                 password: "Free Copy",
@@ -713,6 +766,7 @@
                 verifier: "Cursed",
                 thumb: "https://img.youtube.com/vi/0eYG1ogJpIQ/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/0eYG1ogJpIQ",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "The hardest nine circles level... at that time // By SeptaGon7 and Renn241",
                 id: "127997391",
                 password: "Free Copy",
@@ -732,6 +786,7 @@
                 verifier: "Zoink",
                 thumb: "https://img.youtube.com/vi/nU5AQPzd2YA/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/nU5AQPzd2YA",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Defeated. (Verified by Zoink)",
                 id: "120012581",
                 password: "Free Copy",
@@ -751,6 +806,7 @@
                 verifier: "Diamond",
                 thumb: "https://img.youtube.com/vi/ofG2mJi9kEA/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/ofG2mJi9kEA",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "By Nick24, DrCuber, korewa, Muffy450, Renn241, endevvor, Mzero, NineDice, GhostVandalf. Dedicated to Cursed",
                 id: "76962930",
                 password: "Free Copy",
@@ -770,6 +826,7 @@
                 verifier: "Dezstro",
                 thumb: "https://img.youtube.com/vi/R_-chk3SRFI/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/R_-chk3SRFI",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "deco by me, gameplay and verification by destroyer0912",
                 id: "99703915",
                 password: "Free Copy",
@@ -789,6 +846,7 @@
                 verifier: "VoTcHi",
                 thumb: "https://img.youtube.com/vi/tYbXsNkO9HE/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/tYbXsNkO9HE",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Psychedelic. Layout and verified by Votchi",
                 id: "81139702",
                 password: "Free Copy",
@@ -808,6 +866,7 @@
                 verifier: "swiborg",
                 thumb: "https://img.youtube.com/vi/eHQNgty8ypY/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/eHQNgty8ypY",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "The stars name is Janet, please nice to her. Original level by D4rkGryf.",
                 id: "90390075",
                 password: "Free Copy",
@@ -827,6 +886,7 @@
                 verifier: "Xanni",
                 thumb: "https://img.youtube.com/vi/C3-l_fFikpQ/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/C3-l_fFikpQ",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Legendary Demon by APTeam. Verified by Xanii. Legacy Mode can be enabled with LDM Checkbox. Legacy Concept by Viprin. Version 3.0",
                 id: "69685815",
                 password: "Free Copy",
@@ -846,6 +906,7 @@
                 verifier: "Doggie",
                 thumb: "https://img.youtube.com/vi/eyZjKtrGVYw/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/eyZjKtrGVYw",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "fixed by doggie",
                 id: "79771070",
                 password: "Free Copy",
@@ -865,6 +926,7 @@
                 verifier: "teraaa",
                 thumb: "https://img.youtube.com/vi/_4MDq8Us5gM/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/_4MDq8Us5gM",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "dont do drugs - verified by teraaa - bugfix update for bims",
                 id: "95524621",
                 password: "Free Copy",
@@ -884,6 +946,7 @@
                 verifier: "SpeedyMuffin",
                 thumb: "https://img.youtube.com/vi/RIDuh4IVGiw/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/RIDuh4IVGiw",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "MAKE MY DREAM COME TRUE Verified by SpeedyMuffin",
                 id: "78745224",
                 password: "Free Copy",
@@ -903,6 +966,7 @@
                 verifier: "Bugthunder556",
                 thumb: "https://img.youtube.com/vi/g2CVts-tX70/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/g2CVts-tX70",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Started in 2017 by Walroose, finished in 2024 by MercuryDT and more | verified by BigThunder556",
                 id: "112586799",
                 password: "Free Copy",
@@ -922,6 +986,7 @@
                 verifier: "fusion425",
                 thumb: "https://img.youtube.com/vi/LnFdka3HekA/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/LnFdka3HekA",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Conquer the cosmos | Sequel to Infinite Inversion Verified by fusion425",
                 id: "114340057",
                 password: "Free Copy",
@@ -941,6 +1006,7 @@
                 verifier: "Inverse Games",
                 thumb: "https://img.youtube.com/vi/liJFeLHcW_Q/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/liJFeLHcW_Q",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "My first solo extremo demo. I verified this map in 2,594 attempts (22k old attempts on a buffed version) (update verified by Inverse)",
                 id: "93155813",
                 password: "Free Copy",
@@ -960,6 +1026,7 @@
                 verifier: "DoSh7t",
                 thumb: "https://img.youtube.com/vi/0I9xCfTOpXg/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/0I9xCfTOpXg",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Sequel to the legendary Sonic Wave by Cyclic. Verified by DoSh7t. Made by APTeam. (v1.3)",
                 id: "76159410",
                 password: "Free Copy",
@@ -979,6 +1046,7 @@
                 verifier: "WatchPiggy",
                 thumb: "https://img.youtube.com/vi/5uu8xXgz_4s/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/5uu8xXgz_4s",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Verified Jember 11th... Rated Shmegus 12th...",
                 id: "96383663",
                 password: "Free Copy",
@@ -998,6 +1066,7 @@
                 verifier: "Metalface221",
                 thumb: "https://img.youtube.com/vi/yd5cH9nvDvg/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/yd5cH9nvDvg",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "The hardest circles level, created by ViRuZ and Endlevel.",
                 id: "52919433",
                 password: "Free Copy",
@@ -1017,6 +1086,7 @@
                 verifier: "evie",
                 thumb: "https://img.youtube.com/vi/cD0zZ9OJkBE/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/cD0zZ9OJkBE",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "verified by harry styles",
                 id: "60740290",
                 password: "789123",
@@ -1036,6 +1106,7 @@
                 verifier: "Dr. Joe",
                 thumb: "https://img.youtube.com/vi/zQbU_2To0bg/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/zQbU_2To0bg",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Updated by Joe",
                 id: "42117203",
                 password: "Free Copy",
@@ -1055,6 +1126,7 @@
                 verifier: "krakow",
                 thumb: "https://img.youtube.com/vi/fwytjLtpgdI/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/fwytjLtpgdI",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Kyasshukodos record on spacial rend nerfed 47&, therefore making it an illegitamate record.",
                 id: "91071815",
                 password: "Free Copy",
@@ -1074,6 +1146,7 @@
                 verifier: "Moosh",
                 thumb: "https://img.youtube.com/vi/wXxPNaqTZKU/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/wXxPNaqTZKU",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Collab with Funnygame, Verified by Moosh.",
                 id: "68688849",
                 password: "Free Copy",
@@ -1093,6 +1166,7 @@
                 verifier: "sunix",
                 thumb: "https://img.youtube.com/vi/GpXTwPgweAk/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/GpXTwPgweAk",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Mythical Demon by Cyclic! Video on my Youtube.",
                 id: "26681070",
                 password: "112516",
@@ -1112,6 +1186,7 @@
                 verifier: "Lucidium",
                 thumb: "https://img.youtube.com/vi/kWCiW7ovnWw/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/kWCiW7ovnWw",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Jeszcze Polska nie zginela, Kiedy my zyjemy. Co nam obca przemoc wziela, Szabla obdierzemy. J E B A C  P I S",
                 id: "68414488",
                 password: "Free Copy",
@@ -1131,6 +1206,7 @@
                 verifier: "Mullsy",
                 thumb: "https://img.youtube.com/vi/RL-c3PM4uhk/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/RL-c3PM4uhk",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "The only level in the entire game. Verified by Mullsy, collab with Enlex",
                 id: "49576382",
                 password: "Free Copy",
@@ -1150,6 +1226,7 @@
                 verifier: "Cersia",
                 thumb: "https://img.youtube.com/vi/AvMvICz-gJo/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/AvMvICz-gJo",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "And next friday night, well do it all again. Dedicated to Slithium, Declan, Tuggy, GrenadeofTacos, and SaRy... SONG IS ON MY YOUTUBE",
                 id: "69871779",
                 password: "Free Copy",
@@ -1169,6 +1246,7 @@
                 verifier: "Sillow",
                 thumb: "https://img.youtube.com/vi/j8YmLk7KF1A/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/j8YmLk7KF1A",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "L|O_O|J Your skull as a child did not drop as hard as this map L|X_X|J L|+_+|J",
                 id: "89876243",
                 password: "999999",
@@ -1188,6 +1266,7 @@
                 verifier: "PersonHuman42",
                 thumb: "https://img.youtube.com/vi/fTt7B7QPoYU/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/fTt7B7QPoYU",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Official sequel of Fear Me by CrispyDash - 08/10/23 | Hosted by Phantom7Ks - Verified by Diamond - LordVaderCraft - PersonHuman42 | #ThePurgatorySupremacy",
                 id: "95255152",
                 password: "Free Copy",
@@ -1207,6 +1286,7 @@
                 verifier: "ShadowMyth",
                 thumb: "https://img.youtube.com/vi/aCHi2AiRgnc/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/aCHi2AiRgnc",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Better version (rated)",
                 id: "103777677",
                 password: "Free Copy",
@@ -1226,6 +1306,7 @@
                 verifier: "TigerXero",
                 thumb: "https://img.youtube.com/vi/J4Jwp3-ub3I/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/J4Jwp3-ub3I",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "videogame level that is hard. beat only if good",
                 id: "30380566",
                 password: "210317",
@@ -1245,6 +1326,7 @@
                 verifier: "Temp",
                 thumb: "https://img.youtube.com/vi/2BwK_ngpdPA/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/2BwK_ngpdPA",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "A remake of Bashua Vortex by Pennutoh. Made by Temp, ItsHybrid, and HJfod.",
                 id: "55385816",
                 password: "Free Copy",
@@ -1264,6 +1346,7 @@
                 verifier: "CoolCodin",
                 thumb: "https://img.youtube.com/vi/toPNBDFtRy8/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/toPNBDFtRy8",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Enter the Waves. Verified by CoolCodin.",
                 id: "109432828",
                 password: "Free Copy",
@@ -1283,6 +1366,7 @@
                 verifier: "SrGuillester",
                 thumb: "https://img.youtube.com/vi/_nOvs0_uwSk/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/_nOvs0_uwSk",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "El viaje ha terminado... Nivel testeado por Nexus y Guille. Creado por DienID. 242k obj. Verificado por SrGuillester. 60/144/240fp only. Best Effect Level 2022!!! 2025 Update",
                 id: "86595971",
                 password: "Free Copy",
@@ -1302,6 +1386,7 @@
                 verifier: "GrenadeofTacos",
                 thumb: "https://img.youtube.com/vi/siIUWb00-lI/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/siIUWb00-lI",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Earth Circles 01",
                 id: "131768174",
                 password: "Free Copy",
@@ -1321,6 +1406,7 @@
                 verifier: "Gabs",
                 thumb: "https://img.youtube.com/vi/ZcQ5NrKmpT0/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/ZcQ5NrKmpT0",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Imagine unironically remaking SW. Better, imagine actually releasing it! By Lazer & Manix, Verified by Gabs. Can you feel the electricity?",
                 id: "51791710",
                 password: "Free Copy",
@@ -1340,6 +1426,7 @@
                 verifier: "Kapinapi",
                 thumb: "https://img.youtube.com/vi/ucmMMjeTOjc/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/ucmMMjeTOjc",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Enter the paradox of the paracosms.",
                 id: "61531210",
                 password: "Free Copy",
@@ -1359,6 +1446,7 @@
                 verifier: "Plasmalust",
                 thumb: "https://img.youtube.com/vi/lGryDxKfFhU/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/lGryDxKfFhU",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Embrace it... Live it... Love it... The Spectrum... Dedicated to switchi and chuck. Thanks for supporting. Bugfix #2",
                 id: "38765979",
                 password: "758942",
@@ -1378,6 +1466,7 @@
                 verifier: "Metalface221",
                 thumb: "https://img.youtube.com/vi/Pa95HKNXPpY/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/Pa95HKNXPpY",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Extreme NC demon started in 2.0, second half finished in 2.1 to give a more accurate description. crazy it's actually rated, thanks a lot.",
                 id: "46249401",
                 password: "Free Copy",
@@ -1397,6 +1486,7 @@
                 verifier: "zDemented",
                 thumb: "https://img.youtube.com/vi/o27ZvcHUOSU/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/o27ZvcHUOSU",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Hate.",
                 id: "61132346",
                 password: "Free Copy",
@@ -1416,6 +1506,7 @@
                 verifier: "Jakalope",
                 thumb: "https://img.youtube.com/vi/whPSq4uFTK4/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/whPSq4uFTK4",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Made entirely on the 1.9 GDPS! Feat. royen & Valentine. Verified by me, added coin in 2.1!",
                 id: "94772024",
                 password: "Free Copy",
@@ -1435,6 +1526,7 @@
                 verifier: "Royen",
                 thumb: "https://img.youtube.com/vi/YxGL9_uEI8c/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/YxGL9_uEI8c",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Je taime, tu es genial! Merci davoir joue! Je remercie particulierement samu.",
                 id: "59533451",
                 password: "Free Copy",
@@ -1454,6 +1546,7 @@
                 verifier: "lillie(Blitz)",
                 thumb: "https://img.youtube.com/vi/d3IYDgX_Vtk/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/d3IYDgX_Vtk",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Gameplay: First 70% - NormDanchik; last 30% - Me. Decor - DeniPol(me). Verified - Dorami & Blitzer. Istochnik: https://youtu.be/Wl959QnD3lM",
                 id: "62592746",
                 password: "60720",
@@ -1473,6 +1566,7 @@
                 verifier: "Lucidium",
                 thumb: "https://img.youtube.com/vi/SdJguQc9bwk/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/SdJguQc9bwk",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Galaxy Themed NC! Top10 Icarus CC2 | Verified by zXdasfsa, updated and re-verified by LordVadercraft",
                 id: "102807047",
                 password: "Free Copy",
@@ -1492,6 +1586,7 @@
                 verifier: "Prime",
                 thumb: "https://img.youtube.com/vi/mS9zVwrGfuE/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/mS9zVwrGfuE",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Poltergeist Reborn made by Pennutoh and verified by me in 20654 attempts.",
                 id: "36886759",
                 password: "Free Copy",
@@ -1511,6 +1606,7 @@
                 verifier: "Kevelia",
                 thumb: "https://img.youtube.com/vi/glrcPc_ObAQ/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/glrcPc_ObAQ",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Another generic NC level",
                 id: "8147005",
                 password: "71100",
@@ -1530,6 +1626,7 @@
                 verifier: "Fawxu",
                 thumb: "https://img.youtube.com/vi/h9qn-lhkT6A/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/h9qn-lhkT6A",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Nine Circles collab between me and shmigels",
                 id: "144540926",
                 password: "Free Copy",
@@ -1549,6 +1646,7 @@
                 verifier: "NateFH",
                 thumb: "https://img.youtube.com/vi/7NzvIfVWgPw/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/7NzvIfVWgPw",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Remake of a old 2018 level i made :) Started 9/20/2022 and finished 2/19/2023. Nerf date 5/13/2023",
                 id: "88853479",
                 password: "Free Copy",
@@ -1568,6 +1666,7 @@
                 verifier: "icedcave",
                 thumb: "https://img.youtube.com/vi/Y6tQx5ty_u8/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/Y6tQx5ty_u8",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "My only easy level, Enjoy ^,^ - C4T PL4N3T -",
                 id: "84766628",
                 password: "Free Copy",
@@ -1587,6 +1686,7 @@
                 verifier: "MrSpaghetti",
                 thumb: "https://img.youtube.com/vi/ZVcyHxw_XAU/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/ZVcyHxw_XAU",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Wave heavily inspired by The Hallucination. Verified by MrSpaghetti",
                 id: "132904827",
                 password: "Free Copy",
@@ -1606,6 +1706,7 @@
                 verifier: "soumpeixe",
                 thumb: "https://img.youtube.com/vi/KkY8qFj_EUg/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/KkY8qFj_EUg",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "don't play this level (Skillset: Awkward gameplay/Chokepoints)",
                 id: "107641215",
                 password: "Free Copy",
@@ -1625,6 +1726,7 @@
                 verifier: "Rynoxious",
                 thumb: "https://img.youtube.com/vi/-h9heKMg7Ko/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/-h9heKMg7Ko",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Are you there?",
                 id: "58023558",
                 password: "Free Copy",
@@ -1644,6 +1746,7 @@
                 verifier: "Zest",
                 thumb: "https://img.youtube.com/vi/fh40CXiI538/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/fh40CXiI538",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "We all make mistakes. Not everyone will forgive you, but it's what you do to right the wrongs taht will set you free from your burdens",
                 id: "66851981",
                 password: "Free Copy",
@@ -1663,6 +1766,7 @@
                 verifier: "Nova",
                 thumb: "https://img.youtube.com/vi/oQJTjVd5i_M/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/oQJTjVd5i_M",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Tung Tung (Tung) Sahurcles. Verified by Nova4664!",
                 id: "146066774",
                 password: "Free Copy",
@@ -1682,6 +1786,7 @@
                 verifier: "PersonHuman42",
                 thumb: "https://img.youtube.com/vi/n62s5MuGdG4/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/n62s5MuGdG4",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "The one who turns into a beast frees himself from the pain of being a man.",
                 id: "112515547",
                 password: "Free Copy",
@@ -1701,6 +1806,7 @@
                 verifier: "uan",
                 thumb: "https://img.youtube.com/vi/DhEdn31TXDM/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/DhEdn31TXDM",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "My last 2.1 level | Playtesters: playeruan, chriservi | Balanced and verified by playeruan | Enjoy :)",
                 id: "96002712",
                 password: "073773",
@@ -1720,6 +1826,7 @@
                 verifier: "Fawxu",
                 thumb: "https://img.youtube.com/vi/RRfJY8-Xa2c/hqdefault.jpg",
                 videoUrl: "https://www.youtube.com/embed/RRfJY8-Xa2c",
+                showcaseUrl: "https://www.youtube.com/embed/",
                 desc: "Will you be the first? My best level to date, I'm very proud of how this turned out. Enjoy :)",
                 id: "132458573",
                 password: "Free Copy",
@@ -1757,12 +1864,66 @@
             });
         }
 
+        let currentLevel = null;
+
+        function formatYoutubeEmbedUrl(url) {
+            if (!url) return "";
+            const trimmed = url.trim();
+            if (/^https?:\/\/(www\.)?youtube\.com\/embed\/?$/.test(trimmed)) return "";
+            if (trimmed.includes("youtube.com/embed/")) return trimmed;
+            const regExp = /(?:youtube\.com\/(?:watch\?v=|shorts\/|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+            const match = trimmed.match(regExp);
+            if (match && match[1]) {
+                return `https://www.youtube.com/embed/${match[1]}`;
+            }
+            return trimmed;
+        }
+
+        function switchVideoTab(type) {
+            if (!currentLevel) return;
+            const btnVerification = document.getElementById('tabVerification');
+            const btnShowcase = document.getElementById('tabShowcase');
+            const iframe = document.getElementById('mVideo');
+            const placeholder = document.getElementById('videoPlaceholder');
+
+            if (type === 'verification') {
+                btnVerification.classList.add('active');
+                btnShowcase.classList.remove('active');
+                const embedUrl = formatYoutubeEmbedUrl(currentLevel.videoUrl);
+                if (embedUrl) {
+                    iframe.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    iframe.src = embedUrl;
+                } else {
+                    iframe.style.display = 'none';
+                    iframe.src = '';
+                    placeholder.innerText = '등록된 Verification 영상이 없습니다.';
+                    placeholder.style.display = 'flex';
+                }
+            } else {
+                btnShowcase.classList.add('active');
+                btnVerification.classList.remove('active');
+                const embedUrl = formatYoutubeEmbedUrl(currentLevel.showcaseUrl);
+                if (embedUrl) {
+                    iframe.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    iframe.src = embedUrl;
+                } else {
+                    iframe.style.display = 'none';
+                    iframe.src = '';
+                    placeholder.innerText = '등록된 Showcase 영상이 없습니다.';
+                    placeholder.style.display = 'flex';
+                }
+            }
+        }
+
         function openModal(index) {
             const level = levels[index];
             if (!level) return;
+            currentLevel = level;
 
             document.getElementById('mTitle').innerText = level.name;
-            document.getElementById('mVideo').src = level.videoUrl;
+            switchVideoTab('verification');
             document.getElementById('mDesc').innerText = level.desc;
             document.getElementById('mCreator').innerText = level.creator;
             document.getElementById('mVerifier').innerText = level.verifier;
@@ -1816,6 +1977,7 @@
         function closeModal() {
             document.getElementById('modalOverlay').classList.remove('active');
             document.getElementById('mVideo').src = "";
+            currentLevel = null;
             document.body.style.overflow = '';
         }
 
